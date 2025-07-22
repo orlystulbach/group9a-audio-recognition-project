@@ -73,7 +73,7 @@ print(f'Model saved to {MODEL_PATH}')
 
 
 #def add_noise(y, noise_factor=0.005):
-    noise = np.random.randn(len(y))
+    #noise = np.random.randn(len(y))
     return y + noise_factor * noise
 
 #def shift_time(y, shift_max=0.2):
