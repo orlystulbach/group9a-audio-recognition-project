@@ -4,6 +4,8 @@ AI4ALL Group 9A Project
 # This project is to do some audio recognition. 
 
 -currently: wrote mododel script: running with 6.25% accuracy 
+-second run: was 2.0% accuracy 
+
 
 # To-do 
 
