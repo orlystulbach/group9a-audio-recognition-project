@@ -7,7 +7,7 @@ from tensorflow import keras
 from tensorflow.keras import layers
 
 # Path to the dataset
-DATA_DIR = 'smaller_dataset'
+DATA_DIR = 'large_dataset'
 N_MFCC = 13
 TEST_SIZE = 0.2
 RANDOM_STATE = 42
@@ -22,18 +22,15 @@ def extract_features(file_path, n_mfcc=N_MFCC):
     return np.mean(mfcc.T, axis=0)
 
 X, y = [], []
-for folder in sorted(os.listdir(DATA_DIR)):
-    folder_path = os.path.join(DATA_DIR, folder)
-    if not os.path.isdir(folder_path):
-        continue
-    for fname in os.listdir(folder_path):
-        if fname.endswith('.wav'):
-            # Label is the last number before .wav, e.g., 0 in 0_02_0.wav
-            label = fname.split('_')[-1].split('.')[0]
-            file_path = os.path.join(folder_path, fname)
-            features = extract_features(file_path)
-            X.append(features)
-            y.append(label)
+# Look directly in the DATA_DIR for WAV files (no subdirectories)
+for fname in sorted(os.listdir(DATA_DIR)):
+    if fname.endswith('.wav'):
+        # Label is the last number before .wav, e.g., 0 in 0_01_0.wav
+        label = fname.split('_')[-1].split('.')[0]
+        file_path = os.path.join(DATA_DIR, fname)
+        features = extract_features(file_path)
+        X.append(features)
+        y.append(label)
 
 X = np.array(X)
 y = np.array(y)
@@ -71,3 +68,24 @@ model.save(MODEL_PATH)
 print(f'Model saved to {MODEL_PATH}') 
 
 
+# 8. Data augmentation (not used currently, but could be used to improve the model)
+
+
+
+#def add_noise(y, noise_factor=0.005):
+    noise = np.random.randn(len(y))
+    return y + noise_factor * noise
+
+#def shift_time(y, shift_max=0.2):
+    shift = np.random.randint(int(len(y) * shift_max))
+    return np.roll(y, shift)
+#def add_noise(y, noise_factor=0.005):
+    noise = np.random.randn(len(y))
+    return y + noise_factor * noise
+
+#def shift_time(y, shift_max=0.2):
+    shift = np.random.randint(int(len(y) * shift_max))
+    return np.roll(y, shift)
+
+#def change_pitch(y, sr, n_steps=2):
+    return librosa.effects.pitch_shift(y, sr, n_steps=n_steps)
