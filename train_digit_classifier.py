@@ -74,18 +74,18 @@ print(f'Model saved to {MODEL_PATH}')
 
 #def add_noise(y, noise_factor=0.005):
     #noise = np.random.randn(len(y))
-    return y + noise_factor * noise
+    #return y + noise_factor * noise
 
 #def shift_time(y, shift_max=0.2):
-    shift = np.random.randint(int(len(y) * shift_max))
-    return np.roll(y, shift)
+    #shift = np.random.randint(int(len(y) * shift_max))
+    #return np.roll(y, shift)
 #def add_noise(y, noise_factor=0.005):
-    noise = np.random.randn(len(y))
-    return y + noise_factor * noise
+    #noise = np.random.randn(len(y))
+    #return y + noise_factor * noise
 
 #def shift_time(y, shift_max=0.2):
-    shift = np.random.randint(int(len(y) * shift_max))
-    return np.roll(y, shift)
+    #shift = np.random.randint(int(len(y) * shift_max))
+    #return np.roll(y, shift)
 
 #def change_pitch(y, sr, n_steps=2):
-    return librosa.effects.pitch_shift(y, sr, n_steps=n_steps)
+    #return librosa.effects.pitch_shift(y, sr, n_steps=n_steps)
