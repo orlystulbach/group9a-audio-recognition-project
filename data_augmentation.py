@@ -141,7 +141,7 @@ def create_augmented_dataset():
     augment_dataset(input_dir, output_dir, augmentations_per_file=2)
     
     print(f"Augmented dataset created in {output_dir}")
-    print("You can now use this dataset for training with more data!")
+    print("You can now use this dataset for training with more data!, dope")
 
 if __name__ == "__main__":
     create_augmented_dataset() 
