@@ -7,7 +7,7 @@ from tensorflow import keras
 from tensorflow.keras import layers
 
 # Path to the dataset
-DATA_DIR = 'smaller_dataset'
+DATA_DIR = 'large_dataset'
 N_MFCC = 13
 TEST_SIZE = 0.2
 RANDOM_STATE = 42
