@@ -9,6 +9,7 @@ AI4ALL Group 9A Project
 <li>Third run: was 95% accuracy</li>
 <li>Fouth run: over 97% accuracy</li>
 <li>Created testing script to check similarity in data</li>
+<li>Created testing script to check similarity in data</li>
 </ul>
 
 
