@@ -8,7 +8,7 @@ from tensorflow.keras import layers
 from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau
 import matplotlib.pyplot as plt
 
-# Configuration
+# Config
 DATA_DIR = 'large_dataset'
 N_MFCC = 13
 TEST_SIZE = 0.2
@@ -26,7 +26,7 @@ def extract_improved_features(file_path, n_mfcc=N_MFCC):
     # Normalize audio
     y = librosa.util.normalize(y)
     
-    # Check if audio is too quiet
+    # Check if audio is too quiet, shhhhhhhh
     rms = np.sqrt(np.mean(y**2))
     if rms < 0.01:
         print(f"Warning: Very quiet audio in {file_path} (RMS: {rms:.4f})")
@@ -84,7 +84,7 @@ def load_and_preprocess_data():
         if i % 1000 == 0:
             print(f"Processing file {i+1}/{len(wav_files)}")
         
-        # FIXED: Extract label from FIRST part of filename (the actual digit, this was the problem)
+        # FIXED THE ISSUE!!!: Extract label from FIRST part of filename (the actual digit, this was the problem)
         label = fname.split('_')[0]  # This gets the digit, not the instance number
         
         file_path = os.path.join(DATA_DIR, fname)
