@@ -7,6 +7,7 @@ AI4ALL Group 9A Project
 <li>Currently: wrote mododel script: running with 6.25% accuracy</li>
 <li>Second run: was 2.0% accuracy </li>
 <li>Third run: was 95% accuracy</li>
+<li>Fouth run: over 97% accuracy</li>
 </ul>
 
 
